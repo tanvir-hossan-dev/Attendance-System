@@ -19,9 +19,16 @@ const authSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  createdAt: {
-    type: Date,
-    default: new Date(),
+  accountStatus: {
+    type: String,
+    enum: ["PENDING", "ACTIVE", "REJECTED"],
+    default: "PENDING",
+    required: true,
+  },
+  roles: {
+    type: [String],
+    required: true,
+    default: "Student",
   },
 });
 
